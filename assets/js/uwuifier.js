@@ -60,7 +60,7 @@ const translations = {
 	father: 'daddy',
 	papa: 'daddy',
 	maam: 'mommy',
-	"ma'am": 'mommy'
+	"ma'am": 'mommy',
 	madam: 'mommy',
 	miss: 'mommy',
 	ms: 'mommy',
