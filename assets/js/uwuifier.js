@@ -104,7 +104,7 @@ const suffixes = [
 	'xox',
 	'*gwomps*',
 	'*twerks*',
-	'*twerks*',
+	'*starts twerking*',
 	'*gives headpats*',
 	'UwU',
 	'UwU',
@@ -115,6 +115,7 @@ const suffixes = [
 	'uwu',
 	'uwu',
 	'uwu',
+	'nya',
 	'nya',
 	'nya',
 	'nya',
@@ -160,7 +161,7 @@ function uwuify(input) {
 			if (isWord) {
 				if ((wordIndex > 0) && (Math.random() < 0.075)) { // chance to repeat word
 					newWord = newWord + ' ' + newWord;
-				} else if (Math.random() < 0.125) { // chance to stutter word
+				} else if (Math.random() < 0.15) { // chance to stutter word
 					newWord = stutterWord(newWord);
 				}
 				
