@@ -1,0 +1,13 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.navbar {
+	box-sizing: border-box;
+}
+
+body > .container,
+body > .container-fluid {
+  padding: 80px 15px 0;
+}
