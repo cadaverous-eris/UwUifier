@@ -123,6 +123,8 @@ const suffixes = [
 	'nya',
 	'nya',
 	'nya',
+	'XD',
+	'X3',
 	'>3<',
 	':3',
 	'>:3',
