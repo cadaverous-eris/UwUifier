@@ -11,6 +11,11 @@ const translations = {
 		'no',
 		'nyo',
 	],
+	with: [
+		'wif',
+		'wiff',
+		'with',
+	],
 	you: [
 		'you',
 		'u',
@@ -71,7 +76,6 @@ const translations = {
 	],
 	the: [
 		'the',
-		'the',
 		'teh',
 	],
 	bad: 'naughty',
@@ -83,6 +87,7 @@ const prefixes = [
 	'OwO',
 	'owo',
 	'owo',
+	'*nuzzles*',
 	'*nuzzles*',
 	'*nuzzles*',
 	'*blushes*',
@@ -156,7 +161,7 @@ function uwuify(input) {
 		});
 		// chance to add prefix/suffix to sentence
 		if ((words.length > 2) && words.some(w => (w.length > 3))) {
-			if (Math.random() < 0.1) {
+			if (Math.random() < 0.15) {
 				let index = 0;
 				while (
 					(index < words.length) && 
@@ -168,7 +173,7 @@ function uwuify(input) {
 					words.splice(index, 0, pickRandomElement(prefixes), ' ');
 				}
 			}
-			if (Math.random() < 0.15) {
+			if (Math.random() < 0.25) {
 				let index = words.length - 1;
 				while (
 					(index >= 0) &&
@@ -200,13 +205,27 @@ function translateWord(word) {
 		let newWord = '';
 		for (let i = 0; i < word.length; i++) {
 			let char = word.charAt(i);
-			if ((char === 'r') && (Math.random() < 0.8)) {
+			if (
+				(char === 'r') &&
+				(Math.random() < 0.8)
+			) {
 				// chance to convert r into w
 				char = 'w';
-			} else if ((char === 'l') && ((i === 0) || (word.charAt(i - 1) !== 'r')) && (Math.random() < 0.9)) {
+			} else if (
+				(char === 'l') &&
+				((i === 0) || ((word.charAt(i - 1) !== 'r') && (word.charAt(i - 1) !== 'w'))) &&
+				((i + 2) !== word.length || ((i + 1 < word.length) && (word.charAt(i + 1) !== 'e'))) &&
+				(((i > 0) && (word.charAt(i - 1) === 'l') && (newWord.charAt(i - 1) === 'w')) || (((i < 1) || newWord.charAt(i - 1) !== 'l') && (Math.random() < 0.9)))
+			) {
 				// chance to convert l into w
 				char = 'w';
-			} else if ((char === 'n') && ((i + 1) < word.length) && (['a', 'e', 'o', 'u'].indexOf(word.charAt(i + 1)) >= 0) && (Math.random() < 0.85)) {
+				if (((i + 1) < word.length) && (word.charAt(i + 1) === 'l')) {}
+			} else if (
+				(char === 'n') &&
+				((i + 1) < word.length) &&
+				(['a', 'o', 'u'].indexOf(word.charAt(i + 1)) >= 0) &&
+				(Math.random() < 0.85)
+			) {
 				// chance to add a y between an n and a vowel
 				char = char + 'y';
 			}
