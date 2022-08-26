@@ -7,8 +7,6 @@ const translations = {
 	no: [
 		'no',
 		'no',
-		'no',
-		'no',
 		'nyo',
 	],
 	with: [
@@ -82,7 +80,10 @@ const translations = {
 		'the',
 		'teh',
 	],
-	bad: 'naughty',
+	bad: [
+		'bad',
+		'naughty',
+	],
 };
 
 const prefixes = [
