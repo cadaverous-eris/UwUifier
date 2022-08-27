@@ -75,14 +75,22 @@ const translations = {
 	mother: 'mommy',
 	mama: 'mommy',
 	love: 'wuv',
-	fuck: 'frick',
-	fucking: 'hecking',
+	fuck: [
+		'frick',
+		'heck',
+	],
+	fucking: [
+		'hecking',
+		'heckin',
+	],
+	fuckin: 'heckin',
 	hell: 'heck',
 	damn: 'darn',
 	god: 'daddy',
 	'super': [
 		'sooper',
 		'soopew',
+		'sooper dooper',
 	],
 	the: [
 		'the',
@@ -114,6 +122,7 @@ const suffixes = [
 	'*gwomps*',
 	'*twerks*',
 	'*starts twerking*',
+	'*starts twerking*',
 	'*gives headpats*',
 	'UwU',
 	'UwU',
@@ -130,10 +139,9 @@ const suffixes = [
 	'nya',
 	'nya',
 	'nya',
-	'nya',
-	'nya',
 	'XD',
 	'X3',
+	'x3',
 	'>3<',
 	':3',
 	'>:3',
@@ -301,6 +309,9 @@ function capitalizeWord(word) {
 
 // returns true if provided character is alphanumeric
 function isAlphanumeric(char) {
+	if (!char) {
+		return false;
+	}
 	const code = char.charCodeAt(0);
 	return ((code >= 48) && (code <= 57)) || // 0-9
 				 ((code >= 65) && (code <= 90)) || // A-Z
@@ -309,6 +320,9 @@ function isAlphanumeric(char) {
 
 // returns true if provided character is a letter
 function isLetter(char) {
+	if (!char) {
+		return false;
+	}
 	const code = char.charCodeAt(0);
 	return ((code >= 65) && (code <= 90)) || // A-Z
 				 ((code >= 97) && (code <= 122));  // a-z
@@ -345,7 +359,17 @@ function splitWords(input) {
 	let wordStart = 0;
 	for (let i = 0; i < input.length; i++) {
 		const char = input.charAt(i);
-		if (!isAlphanumeric(char) && (char !== "'")) {
+		if (
+			!isAlphanumeric(char) &&
+			(
+				(char !== "'") ||
+				(
+					((i + 1) < input.length) &&
+					(!isLetter(input.charAt(i + 1)) || (input.charAt(i + 1) === 's'))
+				) ||
+				(i === wordStart)
+			)
+		) {
 			if (wordStart < i) {
 				words.push(input.substring(wordStart, i));
 			}
