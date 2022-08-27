@@ -228,7 +228,7 @@ function translateWord(word) {
 				(char === 'l') &&
 				((i === 0) || ((word.charAt(i - 1) !== 'r') && (word.charAt(i - 1) !== 'w'))) &&
 				((i + 2) !== word.length || ((i + 1 < word.length) && (word.charAt(i + 1) !== 'e'))) &&
-				(((i > 0) && (word.charAt(i - 1) === 'l') && (newWord.charAt(i - 1) === 'w')) || (((i < 1) || newWord.charAt(i - 1) !== 'l') && (Math.random() < 0.9)))
+				(((i > 0) && (word.charAt(i - 1) === 'l') && (newWord.charAt(newWord.length - 1) === 'w')) || (((i < 1) || newWord.charAt(newWord.length - 1) !== 'l') && (Math.random() < 0.9)))
 			) {
 				// chance to convert l into w
 				char = 'w';
