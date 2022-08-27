@@ -43,6 +43,11 @@
 				<div class="col-lg-6">
 					<label for="text-input" class="form-label">Input</label>
 					<textarea class="form-control" id="text-input" rows="12"></textarea>
+					
+					<br/>
+					<div style="text-align: right;">
+						<button class="btn btn-primary" id="clear-btn">Clear</button>
+					</div>
 				</div>
 				<div class="col-lg-6">
 					<label for="text-output" class="form-label">Output</label>
@@ -51,9 +56,11 @@
 					<br/>
 					<label class="form-label">Text-to-speech</label>
 					<br/>
-					<button class="btn btn-primary" id="play-btn"><i class="fa-solid fa-play"></i></button>
-					<button class="btn btn-primary" id="pause-btn"><i class="fa-solid fa-pause"></i></button>
-					<button class="btn btn-primary" id="stop-btn"><i class="fa-solid fa-stop"></i></button>
+					<div>
+						<button class="btn btn-primary" id="play-btn"><i class="fa-solid fa-play"></i></button>
+						<button class="btn btn-primary" id="pause-btn"><i class="fa-solid fa-pause"></i></button>
+						<button class="btn btn-primary" id="stop-btn"><i class="fa-solid fa-stop"></i></button>
+					</div>
 				</div>
 			</div>
 		</main>
@@ -62,6 +69,8 @@
 			$(document).ready(() => {
 				const input = $('#text-input');
 				const output = $('#text-output');
+				
+				const clearBtn = $('#clear-btn');
 				
 				const playBtn = $('#play-btn');
 				const pauseBtn = $('#pause-btn');
@@ -99,16 +108,28 @@
 							synth.cancel();
 						}
 					});
-				
-				
 				} else {
-						playBtn.attr('disabled', true);
-						pauseBtn.attr('disabled', true);
+					playBtn.attr('disabled', true);
+					pauseBtn.attr('disabled', true);
+					stopBtn.attr('disabled', true);
 				}
 
 				// run UWUifier on input
 				input.on('input', () => {
 					output.val(uwuify(input.val()));
+					
+					if (ttsAvailable && synth != null) {
+						if (flag) {
+							flag = false;
+							synth.cancel();
+						}
+					}
+				});
+				
+				// add clear button functionality
+				clearBtn.on('click', event => {
+					input.val('');
+					output.val('');
 					
 					if (ttsAvailable && synth != null) {
 						if (flag) {

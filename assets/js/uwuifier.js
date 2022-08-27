@@ -39,8 +39,16 @@ const translations = {
 		'der',
 		"they're",
 	],
-	dog: 'doggo',
+	dog: [
+		'doggo',
+		'pupper',
+	],
 	cat: 'kitteh',
+	baby: [
+		'bwaby',
+		'bwabby',
+		'babby',
+	],
 	friend: [
 		'fwend',
 		'frend',
