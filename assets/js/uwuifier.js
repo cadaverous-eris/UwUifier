@@ -244,7 +244,7 @@ function translateWord(word) {
 			} else if (
 				(char === 'y') &&
 				((i + 1) === word.length) && (i > 0) &&
-				(['a', 'e', 'i', 'o', 'u'].indexOf(word.charAt(i + 1)) < 0)
+				(['a', 'e', 'i', 'o', 'u'].indexOf(word.charAt(i - 1)) < 0)
 			) {
 				const rand = Math.random();
 				// chance to convert 'y' at end of word to 'iee' or 'ie'
