@@ -57,7 +57,18 @@ const translations = {
 	stop: 'stawp',
 	never: [
 		'nyever',
+		'nyevew',
 		'nevew',
+	],
+	cute: [
+		'cuute',
+		'kawaii',
+		'kawaii',
+	],
+	stupid: 'stoopid',
+	lol: [
+		'lulz',
+		'lolz',
 	],
 	sir: 'daddy',
 	mister: 'daddy',
@@ -138,7 +149,10 @@ const suffixes = [
 	'nya',
 	'nya',
 	'nya',
-	'nya',
+	'nyan',
+	'nyan',
+	'nyaa',
+	'nyaa',
 	'XD',
 	'X3',
 	'x3',
@@ -179,7 +193,14 @@ function uwuify(input) {
 			}
 			if (isWord) {
 				if ((wordIndex > 0) && (Math.random() < 0.075)) { // chance to repeat word
-					newWord = newWord + ' ' + newWord;
+					const rand = Math.random();
+					if (rand < 0.3) {
+						newWord = newWord + ' uh ' + newWord;
+					} else if (rand < 0.55) {
+						newWord = newWord + ' umm ' + newWord;
+					} else {
+						newWord = newWord + ' ' + newWord;
+					}
 				} else if (Math.random() < 0.15) { // chance to stutter word
 					newWord = stutterWord(newWord);
 				}
@@ -190,7 +211,7 @@ function uwuify(input) {
 		});
 		// chance to add prefix/suffix to sentence
 		if ((words.length > 2) && words.some(w => (w.length > 3))) {
-			if (Math.random() < 0.2) {
+			if (Math.random() < 0.3) {
 				let index = 0;
 				while (
 					(index < words.length) && 
@@ -202,7 +223,7 @@ function uwuify(input) {
 					words.splice(index, 0, pickRandomElement(prefixes), ' ');
 				}
 			}
-			if (Math.random() < 0.35) {
+			if (Math.random() < 0.45) {
 				let index = words.length - 1;
 				while (
 					(index >= 0) &&
@@ -259,6 +280,7 @@ function translateWord(word) {
 				char = char + 'y';
 			} else if (
 				(char === 'y') &&
+				(word.length > 2) &&
 				((i + 1) === word.length) && (i > 0) &&
 				(['a', 'e', 'i', 'o', 'u'].indexOf(word.charAt(i - 1)) < 0)
 			) {
