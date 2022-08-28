@@ -54,6 +54,16 @@ const translations = {
 		'frend',
 		'fren',
 	],
+	little: [
+		'widdle',
+		'widdle',
+		'lil',
+	],
+	yes: 'yess',
+	no: [
+		'noo',
+		'no',
+	],
 	stop: 'stawp',
 	never: [
 		'nyever',
@@ -188,7 +198,7 @@ function uwuify(input) {
 	let sentences = splitSentences(input).map(sentence => splitWords(sentence));
 	sentences = sentences.map(sentence => {
 		let wordIndex = 0;
-		let words = sentence.map(word => {
+		let words = sentence.map((word, wi) => {
 			const isCapitalized = isWordCapitalized(word);
 			let newWord = word.toLowerCase();
 			const isWord = (word.length > 1) || ((word.length === 1) && isLetter(word));
@@ -215,13 +225,13 @@ function uwuify(input) {
 				}
 				
 				wordIndex++;
-			} else if ((word === ' ') && (wordIndex > 0)) {
+			} else if ((word === ' ') && (wordIndex > 0) && (wi < (sentence.length - 2))) {
 				const rand = Math.random();
 				if (rand < 0.035) {
 					newWord = ' uh ';
 				} else if (rand < 0.075) {
 					newWord = ' um ';
-				} else if (rand < 0.12) {
+				} else if (rand < 0.11) {
 					newWord = ' umm ';
 				}
 			}
