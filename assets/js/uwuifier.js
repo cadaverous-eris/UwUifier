@@ -70,6 +70,15 @@ const translations = {
 		'lulz',
 		'lolz',
 	],
+	boy: 'boi',
+	boyfriend: [
+		'boifwend',
+		'boifrend',
+	],
+	girlfriend: [
+		'gurlfwend',
+		'girlfrend',
+	],
 	sir: 'daddy',
 	mister: 'daddy',
 	mr: 'daddy',
@@ -206,6 +215,15 @@ function uwuify(input) {
 				}
 				
 				wordIndex++;
+			} else if ((word === ' ') && (wordIndex > 0)) {
+				const rand = Math.random();
+				if (rand < 0.035) {
+					newWord = ' uh ';
+				} else if (rand < 0.075) {
+					newWord = ' um ';
+				} else if (rand < 0.12) {
+					newWord = ' umm ';
+				}
 			}
 			return newWord;
 		});
