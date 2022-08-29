@@ -43,16 +43,27 @@ const translations = {
 		'doggo',
 		'pupper',
 	],
+	dogs: [
+		'doggos',
+		'puppers',
+	],
 	cat: 'kitteh',
+	cats: 'kitties',
 	baby: [
 		'bwaby',
 		'bwabby',
 		'babby',
 	],
+	babies: 'bwabies',
 	friend: [
 		'fwend',
 		'frend',
 		'fren',
+	],
+	friend: [
+		'fwends',
+		'frends',
+		'frens',
 	],
 	little: [
 		'widdle',
@@ -87,9 +98,10 @@ const translations = {
 		'boifren',
 		'bf',
 	],
+	girl: 'gorl',
 	girlfriend: [
 		'gorlfwend',
-		'girlfren',
+		'gorlfren',
 		'gf',
 	],
 	sir: 'daddy',
