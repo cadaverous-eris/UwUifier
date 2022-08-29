@@ -64,6 +64,7 @@ const translations = {
 		'noo',
 		'no',
 	],
+	best: 'bestest',
 	stop: 'stawp',
 	never: [
 		'nyever',
@@ -83,11 +84,13 @@ const translations = {
 	boy: 'boi',
 	boyfriend: [
 		'boifwend',
-		'boifrend',
+		'boifren',
+		'bf',
 	],
 	girlfriend: [
-		'gurlfwend',
-		'girlfrend',
+		'gorlfwend',
+		'girlfren',
+		'gf',
 	],
 	sir: 'daddy',
 	mister: 'daddy',
@@ -220,18 +223,20 @@ function uwuify(input) {
 					} else {
 						newWord = newWord + ' ' + newWord;
 					}
-				} else if (Math.random() < 0.15) { // chance to stutter word
+				} else if ((newWord.length > 1) && (Math.random() < 0.15)) {
+					// chance to stutter word
 					newWord = stutterWord(newWord);
 				}
 				
 				wordIndex++;
 			} else if ((word === ' ') && (wordIndex > 0) && (wi < (sentence.length - 2))) {
+				// chance to add uh, um, or umm between words
 				const rand = Math.random();
 				if (rand < 0.035) {
 					newWord = ' uh ';
 				} else if (rand < 0.075) {
 					newWord = ' um ';
-				} else if (rand < 0.11) {
+				} else if (rand < 0.105) {
 					newWord = ' umm ';
 				}
 			}
