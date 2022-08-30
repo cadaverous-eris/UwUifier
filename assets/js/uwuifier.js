@@ -4,11 +4,6 @@ const translations = {
 		'henlo',
 		'hiiii',
 	],
-	no: [
-		'no',
-		'no',
-		'nyo',
-	],
 	with: [
 		'wif',
 		'wiff',
@@ -49,6 +44,8 @@ const translations = {
 	],
 	cat: 'kitteh',
 	cats: 'kitties',
+	bird:  'birb',
+	birds:  'birbs',
 	baby: [
 		'bwaby',
 		'bwabby',
@@ -72,8 +69,9 @@ const translations = {
 	],
 	yes: 'yess',
 	no: [
-		'noo',
 		'no',
+		'noo',
+		'nyo',
 	],
 	best: 'bestest',
 	stop: 'stawp',
@@ -88,6 +86,7 @@ const translations = {
 		'kawaii',
 	],
 	stupid: 'stoopid',
+	dead: 'ded',
 	lol: [
 		'lulz',
 		'lolz',
@@ -104,6 +103,7 @@ const translations = {
 		'gorlfren',
 		'gf',
 	],
+	lord: 'daddy',
 	sir: 'daddy',
 	mister: 'daddy',
 	mr: 'daddy',
