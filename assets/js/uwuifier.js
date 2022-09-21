@@ -34,6 +34,12 @@ const translations = {
 		'der',
 		"they're",
 	],
+	some: "sum",
+	something: 'sumting',
+	somewhere: 'sumwhere',
+	sometime: 'sumtime',
+	somewhat: 'sumwat',
+	somehow: 'sumhow',
 	dog: [
 		'doggo',
 		'pupper',
@@ -64,7 +70,7 @@ const translations = {
 	],
 	little: [
 		'widdle',
-		'widdle',
+		'wil',
 		'lil',
 	],
 	yes: 'yess',
@@ -91,6 +97,9 @@ const translations = {
 		'lulz',
 		'lolz',
 	],
+	snack: 'snacc',
+	thick: 'thicc',
+	fat: 'thicc',
 	boy: 'boi',
 	boyfriend: [
 		'boifwend',
@@ -120,6 +129,8 @@ const translations = {
 	mother: 'mommy',
 	mama: 'mommy',
 	love: 'wuv',
+	suck: 'succ',
+	sucks: 'succs',
 	fuck: [
 		'frick',
 		'heck',
