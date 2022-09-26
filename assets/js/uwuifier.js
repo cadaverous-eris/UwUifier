@@ -152,6 +152,7 @@ const translations = {
 		'the',
 		'teh',
 	],
+	its: 'it',
 	bad: [
 		'bad',
 		'naughty',
